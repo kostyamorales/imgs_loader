@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Image(models.Model):
+    img = models.ImageField('Картинка')
+    width = models.PositiveIntegerField(null=True, blank=True)
+    height = models.PositiveIntegerField(null=True, blank=True)
