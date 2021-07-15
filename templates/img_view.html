@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Просмотр</title>
+  <meta charset="UTF-8">
+  <title>Просмотр</title>
 </head>
 <body>
-
+<p><a href="{% url 'index' %}">Назад к списку</a></p>
+<form method="POST">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" >Отправить</button>
+</form>
+{% load thumbnail %}
+{% thumbnail image.img size upscale=True as img %}
+  <a href="{{ img.url }}"></a><img src="{{ img.url }}" style="max-width: 300px; max-height: 300px;"></a>
+{% endthumbnail %}
 </body>
 </html>
